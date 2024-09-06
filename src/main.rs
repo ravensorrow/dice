@@ -10,16 +10,20 @@ fn main() {
     }
 
     let mut total_sum: u32 = 0;
+    let mut i: usize = 1;
 
     // Use a loop variable `i` with the correct type `usize`
-    for mut i: uszie in 1..args.len() {
+    // for loop out, while loop in
+    while i < args.len() {
         let dice_type: &String = &args[i];
         let num_rolls: u32 = args[i + 1].parse().expect("Invalid number of rolls");
-        i += 1; // Increment `i` to move to the next element
+        // i += 1; // Increment `i` to move to the next element (never actually used!?!)
 
         let roll_sum: u32 = roll_dice(dice_type, num_rolls);
         total_sum += roll_sum;
         println!("{} rolls of {}: {}", num_rolls, dice_type, roll_sum);
+
+        i += 2; // Move to the next dice type and roll count
     }
 
     println!("Total sum: {}", total_sum);
